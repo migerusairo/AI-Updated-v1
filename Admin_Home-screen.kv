@@ -1,0 +1,94 @@
+MDScreen:
+    user_list: user_list
+    name: 'Adminhome'
+    MDFloatLayout:
+        MDIcon:
+            icon: "assets/TCUlogo.jpg"
+            pos_hint: {'center_x': 0.1, 'center_y': 0.95}
+        MDLabel:
+            text: "Users"
+            font_name: "fonts/OpenSans-Bold.ttf"
+            pos_hint: {'center_x': .65, 'center_y': 0.95}
+            font_size: "18sp"
+
+    MDIconButton:
+        icon: "icons/logout.png"
+        pos_hint: {'center_x': 0.9, 'center_y': 0.95}
+        on_release:
+            app.admin_logout()
+            root.manager.transition.direction = "right"
+
+    ScrollView:
+        size_hint_y: .9
+        do_scroll_x: True
+        do_scroll_y: True
+
+        MDBoxLayout:
+            id : user_list
+            orientation: 'vertical'
+            size: (root.width, root.height)
+            width: self.minimum_width
+            size_hint: None, None
+            spacing : 10
+            cols: 1
+
+    MDBoxLayout:
+        Carousel:
+            size_hint: .5, .10
+            pos_hint: {"center_y": .10}
+
+            MDFloatLayout:
+                md_bg_color: "#F8CBA6"
+                radius: [0,30,30,0]
+                size_hint_x: .1
+                pos_hint: {'center_y': 0.5}
+
+    MDBoxLayout:
+        Carousel:
+            size_hint: .5, .10
+            pos_hint: {"center_y": .10}
+
+            MDFloatLayout:
+                md_bg_color: "#F8CBA6"
+                radius: [0,30,30,0]
+                size_hint_x: .8
+                pos_hint: {'center_y': 0.5}
+
+                MDIconButton:
+                    icon: "icons/love.png"
+                    pos_hint: {"center_x": .15,'center_y': 0.5}
+                    theme_text_color: "Custom"
+                    md_bg_color: 255/255, 200/255, 70/255, 1
+                    on_release:
+                        root.manager.transition.direction = "left"
+                        root.manager.current = "Love_Command-screen"
+
+                MDIconButton:
+                    icon: "icons/academic.png"
+                    pos_hint: {"center_x": .38,'center_y': 0.5}
+                    theme_text_color: "Custom"
+                    md_bg_color: 255/255, 200/255, 70/255, 1
+                    on_release:
+                        root.manager.transition.direction = "left"
+                        root.manager.current = "Academic_Command-screen"
+
+                MDIconButton:
+                    icon: "icons/family.png"
+                    pos_hint: {"center_x": .62,'center_y': 0.5}
+                    theme_text_color: "Custom"
+                    md_bg_color: 255/255, 200/255, 70/255, 1
+                    on_release:
+                        root.manager.transition.direction = "left"
+                        root.manager.current = "Family_Command-screen"
+
+                MDIconButton:
+                    icon: "icons/financial.png"
+                    pos_hint: {"center_x": .85,'center_y': 0.5}
+                    theme_text_color: "Custom"
+                    md_bg_color: 255/255, 200/255, 70/255, 1
+                    on_release:
+                        root.manager.transition.direction = "left"
+                        root.manager.current = "Financial_Command-screen"
+
+            MDFloatLayout:
+                md_bg_color: 0,0,0,0
